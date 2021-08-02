@@ -2,7 +2,7 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
          xmlns:t="/lib/hudson" xmlns:f="/lib/form">
 
-    <f:entry title="${%Enter your Sofy.ai API key}" field="apiToken" help="/plugin/sofy_plugin/help-apiKey.html">
+    <f:entry title="${%Enter your Sofy.ai API key}" field="apiToken" help="/sofy-ai/help-apiKey.html">
         <f:textbox/>
     </f:entry>
 
@@ -10,7 +10,7 @@
                       with="apiToken">
     </f:validateButton>
 
-    <f:entry title="${%Enter APK Location}" field="apkPath" help="/plugin/sofy_plugin/help-apkPath.html">
+    <f:entry title="${%Enter APK Location}" field="apkPath" help="/sofy-ai/help-apkPath.html">
         <f:textbox/>
     </f:entry>
 

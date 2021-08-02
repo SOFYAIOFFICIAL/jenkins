@@ -63,14 +63,14 @@ public class TestMobileAppWithSofy extends Recorder {
             e.printStackTrace();
             listener.getLogger().println("Unable to stage test run. An error occurred.");
         }
-        build.addAction(new ViewMobileTestRunResults(build, this.testRunResponse, this.apiToken));
+        //build.addAction(new ViewMobileTestRunResults(build, this.testRunResponse, this.apiToken));
         return true;
     }
 
     private String stageMobileTestRun(PrintStream logger, String apkLocation) throws Exception {
         // http
         CloseableHttpClient client = HttpClientBuilder.create().build();
-        HttpPost httppost = new HttpPost("https://api.sofy.ai/v1/applications/create?deviceid=68");
+        HttpPost httppost = new HttpPost("https://api.sofy.ai/api/AppTests/buildUpload");
         // set Subscription Key
         String subKey = this.apiToken;
         try {
@@ -119,6 +119,7 @@ public class TestMobileAppWithSofy extends Recorder {
             httppost.setEntity(entity);
             // wait for response
             HttpResponse response = client.execute(httppost);
+            logger.println(response);
             return new BasicResponseHandler().handleResponse(response);
         }
 
@@ -142,7 +143,7 @@ public class TestMobileAppWithSofy extends Recorder {
 
         @Override
         public String getDisplayName() {
-            return "Schedule Mobile App Test Run on Sofy.ai";
+            return "Upload application build to Sofy.ai";
         }
 
 
